@@ -47,12 +47,12 @@ export const register = createAsyncThunk(
         const token = thunkAPI.getState().auth.token; 
 
       try {
-        await axios.get(`${process.env.REACT_APP_BASE_URL}auth/logout`,{} ,{
+        await axios.get(`${process.env.REACT_APP_BASE_URL}/auth/logout` ,{
           headers: {
             'Authorization': `Token ${token}`,
         }
     });
-      
+  
 
         console.log(token)
       } catch (error) {

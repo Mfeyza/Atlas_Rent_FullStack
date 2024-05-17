@@ -44,6 +44,10 @@ const authSlice=createSlice({
             state.email=payload?.data.user.email
             state.password=payload?.data.user.password
             state.username=payload?.data.user.username
+            state.phoneNumber=payload?.data.user.phoneNumber
+            state.isActive=payload?.data.user.isActive
+            state.isAdmin=payload?.data.user.isAdmin
+            state.isLandLord=payload?.data.user.isLandLord
             
             
         })
@@ -86,9 +90,14 @@ const authSlice=createSlice({
         state.email="";
         state.password="";
         state.username="";
+        state.phoneNumber=""
+        state.isActive=""
+        state.isAdmin=""
+        state.isLandLord=""
+        
       })}
 
 
 })
-export const {} = authSlice.actions
+export const {user} = authSlice.actions
 export default authSlice.reducer
