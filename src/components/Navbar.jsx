@@ -16,17 +16,19 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AdbIcon from "@mui/icons-material/Adb";
 import { useLocation, useNavigate } from "react-router-dom";
 import { logout } from "../thunks/auththunk";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const pages = ["Hakkımızda"];
+const settings = ["Profil", "Çıkış"];
 
 function Navbar() {
   const { pathname } = useLocation() || {};
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const id = useSelector((state) => state.auth._id);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -50,9 +52,18 @@ function Navbar() {
     navigate("/");
   };
   if (["/register"].includes(pathname)) return;
-
+  const handleSettings = (set) => {
+    if (set === "Profil") {
+      navigate(`/myReservation/${id}`);
+      return;
+    }
+    if (set === "Çıkış") {
+      handleLogout();
+      navigate("/");
+    }
+  };
   return (
-    <AppBar sx={{backgroundColor:"darkblue"}} position="static">
+    <AppBar sx={{ backgroundColor: "darkblue" }} position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Avatar
@@ -109,12 +120,26 @@ function Navbar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography
+                    component="a"
+                    variant="h6"
+                    sx={{
+                      m: 2,
+                      display: { xs: "none", md: "flex" },
+                      fontFamily: "monospace",
+                      fontWeight: 700,
+                      letterSpacing: ".3rem",
+
+                      textDecoration: "none",
+                    }}
+                  >
+                    {page}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          
+
           <Typography
             variant="h5"
             noWrap
@@ -130,7 +155,7 @@ function Navbar() {
               textDecoration: "none",
             }}
           >
-           Atlas Rent
+            Atlas Rent
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
@@ -169,9 +194,9 @@ function Navbar() {
               {settings.map((setting) => (
                 <MenuItem
                   key={setting}
-                  onClick={
-                    setting === "Logout" ? handleLogout : handleCloseUserMenu
-                  }
+                  onClick={() => {
+                    handleSettings(setting);
+                  }}
                 >
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>

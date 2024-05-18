@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import HomeCard from "../../components/HomeCard";
-import { Backdrop, CircularProgress, Container, Grid } from "@mui/material";
+import {
+  Box,
+  CircularProgress,
+  Container,
+  Grid,
+} from "@mui/material";
 import axios from "axios";
 
 const Homepage = () => {
@@ -12,7 +17,6 @@ const Homepage = () => {
     axios
       .get("https://rent-project.onrender.com/houses")
       .then((res) => {
-        console.log(res.data);
         const houseData = res?.data.data || {};
         setHouses(houseData);
         setLoader(false);
@@ -25,12 +29,9 @@ const Homepage = () => {
   return (
     <>
       {loader && (
-        <Backdrop
-          sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
-          open
-        >
-          <CircularProgress color="inherit" />
-        </Backdrop>
+        <Box sx={{ display: "flex", justifyContent: "center" }}>
+          <CircularProgress />
+        </Box>
       )}
       <Container>
         <Grid container spacing={2} sx={{ mt: 5 }}>

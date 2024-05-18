@@ -47,13 +47,12 @@ const HomeDetails = () => {
   const [housedetail, setHouseDetail] = useState([]);
   const [loader, setLoader] = useState(false);
   const params = useParams();
-  console.log(params);
+
   useEffect(() => {
     setLoader(true);
     axios
       .get(`https://rent-project.onrender.com/houses/${params.id}`)
       .then((res) => {
-        console.log(res.data);
         const houseData = res?.data.data || {};
         setHouseDetail(houseData);
         setLoader(false);

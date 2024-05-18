@@ -90,14 +90,9 @@ const authSlice=createSlice({
         state.email="";
         state.password="";
         state.username="";
-        state.phoneNumber=""
-        state.isActive=""
-        state.isAdmin=""
-        state.isLandLord=""
-        
       })}
 
 
 })
-export const {user} = authSlice.actions
+export const {user,_id} = authSlice.actions
 export default authSlice.reducer

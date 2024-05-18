@@ -17,82 +17,64 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
-import LocalGasStationIcon from '@mui/icons-material/LocalGasStation';
-import PaymentsIcon from '@mui/icons-material/Payments';
+import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
+import LocalGasStationIcon from "@mui/icons-material/LocalGasStation";
+import PaymentsIcon from "@mui/icons-material/Payments";
 import { Button } from "@mui/material";
+import CarReservationModal from "../components/CarReservationModal";
 
-
-
-const CarList = () => {
+const CarList = ({ carList, myReservation }) => {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  const params = useParams();
-  const [carList, setCarList] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get("https://rent-a-car-api-be.onrender.com/cars")
-      .then((res) => {
-        console.log(res.data);
-        const carsData = res?.data.data || {};
-        setCarList(carsData);
-      })
-      .catch((err) => {});
-  }, []);
-
-  //           const {
-  //     brand,
-  //     model,
-  //     year,
-  //     isAutomatic,
-  //     fuelType,
-  //     pricePerDay,
-  //     isPublish,
-  //     imagesUrl,
-  //   } = carList || {};
   return (
     <>
       {carList?.map((car) => (
         <Card key={car._id} sx={{ maxWidth: 225 }}>
           <CardHeader
             avatar={
-              <Avatar src="https://greekgodsandgoddesses.net/wp-content/uploads/2024/01/Atlas-1024x585.png" sx={{ bgcolor: red[500],objectFit:"cover" }} aria-label="recipe">
-            
-              </Avatar>
+              <Avatar
+                src="https://greekgodsandgoddesses.net/wp-content/uploads/2024/01/Atlas-1024x585.png"
+                sx={{ bgcolor: red[500], objectFit: "cover" }}
+                aria-label="recipe"
+              ></Avatar>
             }
-           
             title={`${car.brand} ${car.model}`}
             subheader={`Yıl: ${car.year}`}
-          
           />
           <CardMedia
             component="img"
             height="150"
             maxheight="100"
-            sx={{ objectFit: "cover"}}
+            sx={{ objectFit: "cover" }}
             image={car.imagesUrl[0] || "/static/images/cards/paella.jpg"}
             alt={car.model}
           />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-              <SettingsSuggestIcon/> {` ${car.isAutomatic ? "Otomatik" : "Manuel"}`}
+              <SettingsSuggestIcon />{" "}
+              {` ${car.isAutomatic ? "Otomatik" : "Manuel"}`}
               <br />
-              <LocalGasStationIcon/>{car.fuelType}
+              <LocalGasStationIcon />
+              {car.fuelType}
               <br />
-              <PaymentsIcon/> ${car.pricePerDay}
+              <PaymentsIcon /> {car.pricePerDay} ₺
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
-           <Typography>
-            <Button>KİRALA</Button>
-           </Typography>
-           
+            <Typography>
+              <IconButton aria-label="settings">
+                <CarReservationModal
+                  pricePerDay={car.pricePerDay}
+                  carId={car?._id}
+                  myReservation={myReservation}
+                />
+              </IconButton>
+            </Typography>
           </CardActions>
-         
         </Card>
       ))}
     </>

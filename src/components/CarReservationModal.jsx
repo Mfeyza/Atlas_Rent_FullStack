@@ -10,7 +10,9 @@ import axios from "axios";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import * as dayjs from "dayjs";
+import dayjs from "dayjs";
+
+import { InputLabel, MenuItem, FormControl, Select } from "@mui/material";
 
 const style = {
   position: "absolute",
@@ -24,15 +26,23 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal({ pricePerDay }) {
+export default function BasicModal({ carId, pricePerDay, myReservation }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setReservation("");
+    setReservationSelect("");
+    setCheckDate({
+      checkInDate: null,
+      checkOutDate: null,
+    });
+    setOpen(false);
+  };
   const navigate = useNavigate();
   const token = useSelector((state) => state.auth.token);
   const id = useSelector((state) => state.auth._id);
   const [reservation, setReservation] = useState("");
-
+  const [reservationSelect, setReservationSelect] = useState("");
   const [checkDate, setCheckDate] = useState({
     checkInDate: null,
     checkOutDate: null,
@@ -44,12 +54,12 @@ export default function BasicModal({ pricePerDay }) {
   const handleReservation = () => {
     if (checkInDate && checkOutDate) {
       axios
-        .post(
-          `https://rent-project.onrender.com/reservations`,
+        .put(
+          `https://rent-project.onrender.com/reservations/${reservationSelect._id}`,
           {
             startDate: dayjs(checkInDate).format("YYYY-MM-DD"),
             endDate: dayjs(checkOutDate).format("YYYY-MM-DD"),
-            house: `${params.id}`,
+            car: `${carId}`,
           },
           {
             headers: {
@@ -80,13 +90,32 @@ export default function BasicModal({ pricePerDay }) {
       checkOutDate: null,
     });
   };
-  const { amount, _id } = reservation?.data || {};
 
   const today = dayjs();
   const handleNewReservation = () => {
     navigate(`/myReservation/${id}`);
   };
+
   const days = dayjs(checkOutDate).diff(dayjs(checkInDate), "day");
+  const [openItem, setOpenItem] = useState(false);
+
+  const handleChange = (event) => {
+    const { value } = event.target;
+    setReservationSelect(value);
+    setCheckDate({
+      checkInDate: dayjs(value?.startDate) || null,
+      checkOutDate: dayjs(value?.endDate) || null,
+    });
+  };
+
+  const handleCloseItem = () => {
+    setOpenItem(false);
+  };
+
+  const handleOpenItem = () => {
+    setOpenItem(true);
+  };
+  const { amountCar } = reservation?.new || {};
   return (
     <div>
       <Button onClick={handleOpen}>Rezervasyon</Button>
@@ -97,7 +126,30 @@ export default function BasicModal({ pricePerDay }) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography variant="h6">{pricePerDay} ₺ gece</Typography>
+        <Typography variant="h6"> {pricePerDay} ₺ gece</Typography>
+        <FormControl sx={{mt:2 ,width: "100%" }}>
+            <InputLabel id="demo-controlled-open-select-label">
+              Rezervasyon Seç
+            </InputLabel>
+            <Select
+              labelId="demo-controlled-open-select-label"
+              id="demo-controlled-open-select"
+              open={openItem}
+              onClose={handleCloseItem}
+              onOpen={handleOpenItem}
+              value={reservationSelect?._id}
+              label="Rezervasyon Seç"
+              onChange={handleChange}
+            >
+             
+              {myReservation?.map((item) => {
+                const { house } = item || {};
+                const { title } = house || {};
+                return <MenuItem value={item}>{title}</MenuItem>;
+              })}
+            </Select>
+          </FormControl>
+         
           <Box
             sx={{
               display: "flex",
@@ -128,6 +180,41 @@ export default function BasicModal({ pricePerDay }) {
               />
             </LocalizationProvider>
           </Box>
+
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              mt: "1rem",
+            }}
+          ></Box>
+          {/* {amount > 0 && (
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                mt: 2,
+              }}
+            >
+              <Typography id="modal-modal-description">
+                <i>
+                  ₺ x {days} gece{" "}
+                </i>{" "}
+                = <b> ₺</b>
+              </Typography>
+            </Box>
+          )} */}
+        
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <Button
+              onClick={handleNewReservation}
+              disabled={!checkInDate || !checkOutDate}
+            >
+              Rezervasyon Yap
+            </Button>
+          </Box>
           <Typography
             sx={{
               display: "flex",
@@ -138,22 +225,8 @@ export default function BasicModal({ pricePerDay }) {
           >
             Henüz sizden tahsilat yapılmayacak.
           </Typography>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              mt: "1rem",
-            }}
-          >
-            <Button
-              onClick={handleNewReservation}
-              disabled={!checkInDate || !checkOutDate}
-            >
-              Rezervasyon Yap
-            </Button>
-          </Box>
-          {amount > 0 && (
+
+          {amountCar > 0 && (
             <Box
               sx={{
                 display: "flex",
@@ -166,7 +239,7 @@ export default function BasicModal({ pricePerDay }) {
                 <i>
                   {pricePerDay}₺ x {days} gece{" "}
                 </i>{" "}
-                = <b>{amount} ₺</b>
+                = <b>{amountCar} ₺</b>
               </Typography>
             </Box>
           )}

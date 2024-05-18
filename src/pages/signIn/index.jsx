@@ -93,7 +93,6 @@ export default function SignInSide() {
                                 dispatch(login({ values, navigate }))
                                 actions.resetForm()
                                 actions.setSubmitting(false) 
-                                console.log(values);
                             }}
                         >
                             {({ errors, touched }) => (
