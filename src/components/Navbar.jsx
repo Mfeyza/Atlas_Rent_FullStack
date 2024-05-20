@@ -34,7 +34,7 @@ function Navbar() {
   const lastName = useSelector((state) => state.auth.lastName);
 
   const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
+    setAnchorElNav(event.target.checked);
   };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -52,13 +52,14 @@ function Navbar() {
     console.log("Logout işlemi gerçekleştiriliyor...");
   };
  
-  if (["/Login"].includes(pathname)) return;
+  
   const handleSettings = (set) => {
+    handleCloseUserMenu()
     if (set === "Profil") {
       if(user){
-        navigate(`/myReservation/${id}`);
+        navigate("/myReservation");
       }else{
-        navigate("/Login")
+        navigate("/login")
       }
       
       return;
@@ -68,6 +69,7 @@ function Navbar() {
       navigate("/");
     }
   };
+  if (["/login"].includes(pathname)) return;
   return (
     <AppBar sx={{ backgroundColor: "rgb(132, 132, 179)" }} position="static">
       <Container maxWidth="xl">
@@ -125,6 +127,7 @@ function Navbar() {
                 display: { xs: "block", md: "none" },
               }}
             >
+               
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography

@@ -1,4 +1,4 @@
-import { Container, Typography, Grid } from "@mui/material";
+import { Container, Typography, Grid, Tooltip } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -81,7 +81,7 @@ const HomeDetails = () => {
     <Container>
       <Grid container justifyContent="center">
         <Grid item xs={12} md={8}>
-          <Card sx={{ mt: 5 }}>
+          <Card sx={{ mt: 5 ,mb:5}}>
             <CardHeader
               avatar={
                 <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe" src={createdId?.image}>
@@ -112,32 +112,47 @@ const HomeDetails = () => {
               </Typography>
             </CardContent>
             <CardActions disableSpacing>
-              <IconButton aria-label="sea distance">
+              <IconButton aria-label="food">
+              <Tooltip title="Mutfak" arrow>
                 <FoodBankIcon />
+                </Tooltip>
               </IconButton>
               {isPool && (
                 <IconButton aria-label="pool">
+                   <Tooltip title="Havuz" arrow>
                   <PoolIcon />
+                  </Tooltip>
                 </IconButton>
               )}
               <IconButton aria-label="wifi">
+              <Tooltip title="Wifi" arrow>
                 <WifiIcon />
+                </Tooltip>
               </IconButton>
               <IconButton aria-label="Tv">
+                <Tooltip title="Tv" arrow>
                 <TvIcon />
+                </Tooltip>
+             
               </IconButton>
               {isParking && (
                 <IconButton aria-label="parking">
+                   <Tooltip title="Park" arrow>
                   <LocalParkingIcon />
+                  </Tooltip>
                 </IconButton>
               )}
               {isWashingMachine && (
                 <IconButton aria-label="washing machine">
+                   <Tooltip title="Çamaşır Makinesi" arrow>
                   <LocalLaundryServiceIcon />
+                  </Tooltip>
                 </IconButton>
               )}
               <IconButton aria-label="sea distance">
+              <Tooltip title="Denize Uzaklık" arrow>
                 <WavesIcon /> <Typography> {seaDistance} metre</Typography>
+                </Tooltip>
               </IconButton>
               <ExpandMore
                 expand={expanded}
@@ -150,8 +165,9 @@ const HomeDetails = () => {
             </CardActions>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
               <CardContent>
-                <Typography paragraph>Açıklama</Typography>
                 <Typography paragraph>{description}</Typography>
+                <Typography paragraph><b>Ev sahibi :</b> {createdId?.firstName} {createdId?.lastName}</Typography>
+                <Typography paragraph><b>Tel No :</b> {createdId?.phoneNumber}</Typography>
               </CardContent>
             </Collapse>
           </Card>

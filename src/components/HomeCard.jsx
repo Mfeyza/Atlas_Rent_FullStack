@@ -18,6 +18,7 @@ export default function HomeCard({ house }) {
   const { _id, numberOfRooms, images, location, title, pricePerDay } =
     house || {};
   const handleDetails = () => {
+    sessionStorage.setItem('houseId', _id);
     navigate(`/details/${_id}`);
   };
 

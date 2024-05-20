@@ -10,8 +10,8 @@ export const login = createAsyncThunk(
         `${process.env.REACT_APP_BASE_URL}/auth/login`,
         values
       );
-      const {_id} =  response.data.user
-      navigate("/myReservation");
+     
+  
       return response;
     } catch (error) {
       return rejectWithValue("olmadı");

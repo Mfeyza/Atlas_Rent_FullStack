@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   Avatar,
   Button,
@@ -14,53 +14,53 @@ import {
   Tabs,
   Tab,
   Paper,
-} from '@mui/material';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { styled } from '@mui/system';
-import { login, register } from '../../thunks/auththunk';
+} from "@mui/material";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { styled } from "@mui/system";
+import { login, register } from "../../thunks/auththunk";
 
 const theme = createTheme();
 
 const FormContainer = styled(Container)({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  backgroundColor: '#ffffff',
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  backgroundColor: "#ffffff",
   padding: theme.spacing(4),
-  borderRadius: '10px',
-  boxShadow: '0 3px 5px rgba(0,0,0,0.1)',
+  borderRadius: "10px",
+  boxShadow: "0 3px 5px rgba(0,0,0,0.1)",
 });
 
 const FormBox = styled(Box)({
-  width: '100%',
+  width: "100%",
   marginTop: theme.spacing(3),
 });
 
 const PaperStyled = styled(Paper)({
   padding: theme.spacing(4),
-  borderRadius: '10px',
-  boxShadow: '0 3px 5px rgba(0,0,0,0.1)',
-  backgroundColor: '#ffffff',
+  borderRadius: "10px",
+  boxShadow: "0 3px 5px rgba(0,0,0,0.1)",
+  backgroundColor: "#ffffff",
 });
 
 const CustomTab = styled(Tab)({
-  textTransform: 'none',
+  textTransform: "none",
   fontWeight: theme.typography.fontWeightBold,
   fontSize: theme.typography.pxToRem(15),
 });
 
 const Login = () => {
   const [tabIndex, setTabIndex] = useState(0);
-  const [loginInfo, setLoginInfo] = useState({ email: '', password: '' });
+  const [loginInfo, setLoginInfo] = useState({ email: "", password: "" });
   const [registerInfo, setRegisterInfo] = useState({
-    firstName: '',
-    lastName: '',
-    username: '',
-    email: '',
-    password: '',
-    phoneNumber: '',
-    image: '',
+    firstName: "",
+    lastName: "",
+    username: "",
+    email: "",
+    password: "",
+    phoneNumber: "",
+    image: "",
   });
 
   const dispatch = useDispatch();
@@ -76,10 +76,16 @@ const Login = () => {
   const handleTabChange = (event, newValue) => {
     setTabIndex(newValue);
   };
-
+  const houseDetailId = sessionStorage.getItem("houseId");
+  console.log(sessionStorage.getItem("houseId"));
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    dispatch(login({ values: loginInfo, navigate }));
+    dispatch(login({ values: loginInfo }));
+    if (houseDetailId) {
+      navigate(`/details/${houseDetailId}`);
+      return;
+    }
+    navigate(`/`);
   };
 
   const handleRegisterSubmit = (e) => {
@@ -89,7 +95,7 @@ const Login = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Grid container component="main" sx={{ height: '100vh' }}>
+      <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
         <Grid
           item
@@ -97,12 +103,15 @@ const Login = () => {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://source.unsplash.com/random?wallpapers)',
-            backgroundRepeat: 'no-repeat',
+            backgroundImage:
+              "url(https://source.unsplash.com/random?wallpapers)",
+            backgroundRepeat: "no-repeat",
             backgroundColor: (t) =>
-              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
+              t.palette.mode === "light"
+                ? t.palette.grey[50]
+                : t.palette.grey[900],
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         />
         <Grid
@@ -113,17 +122,21 @@ const Login = () => {
           component={Paper}
           elevation={6}
           square
-          sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
         >
           <Box
             sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              backgroundColor: '#ffffff',
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              backgroundColor: "#ffffff",
               padding: theme.spacing(4),
-              borderRadius: '10px',
-              boxShadow: '0 3px 5px rgba(0,0,0,0.1)',
+              borderRadius: "10px",
+              boxShadow: "0 3px 5px rgba(0,0,0,0.1)",
             }}
           >
             <Avatar sx={{ m: 1, bgcolor: "rgb(132, 132, 179)" }}>
@@ -138,7 +151,10 @@ const Login = () => {
                 indicatorColor="primary"
                 textColor="rgb(132, 132, 179)"
               >
-                <CustomTab sx={{color: "rgb(132, 132, 179)"}} label="Giriş Yap" />
+                <CustomTab
+                  sx={{ color: "rgb(132, 132, 179)" }}
+                  label="Giriş Yap"
+                />
                 <CustomTab label="Kaydol" />
               </Tabs>
               {tabIndex === 0 && (
@@ -167,14 +183,23 @@ const Login = () => {
                   />
                   <Button
                     type="submit"
-                    fullWidth  
-                    sx={{ mt: 3, mb: 2,"backgroundColor" : "rgb(132, 132, 179)",color:"white"}}
+                    fullWidth
+                    sx={{
+                      mt: 3,
+                      mb: 2,
+                      backgroundColor: "rgb(132, 132, 179)",
+                      color: "white",
+                    }}
                   >
                     GİRİŞ
                   </Button>
                   <Grid container justifyContent="center">
                     <Grid item>
-                      <Link href="#" variant="body2" onClick={() => setTabIndex(1)}>
+                      <Link
+                        href="#"
+                        variant="body2"
+                        onClick={() => setTabIndex(1)}
+                      >
                         {"Don't have an account? Sign Up"}
                       </Link>
                     </Grid>
@@ -268,13 +293,22 @@ const Login = () => {
                   <Button
                     type="submit"
                     fullWidth
-                    sx={{ mt: 3, mb: 2,"backgroundColor" :"rgb(132, 132, 179)","color":"white"}}
+                    sx={{
+                      mt: 3,
+                      mb: 2,
+                      backgroundColor: "rgb(132, 132, 179)",
+                      color: "white",
+                    }}
                   >
                     Signup
                   </Button>
                   <Grid container justifyContent="center">
                     <Grid item>
-                      <Link href="#" variant="body2" onClick={() => setTabIndex(0)}>
+                      <Link
+                        href="#"
+                        variant="body2"
+                        onClick={() => setTabIndex(0)}
+                      >
                         {"Already have an account? Sign in"}
                       </Link>
                     </Grid>

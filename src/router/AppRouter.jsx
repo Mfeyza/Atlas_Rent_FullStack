@@ -32,8 +32,9 @@ const AppRouter = () => {
           {/* <Route path="/myreservation" element={<PrivateRouter/>} >  */}
           <Route path="/myreservation" element={<MyReservation />} />
         </Routes>
+        <Footer />
       </Router>
-      <Footer />
+    
     </Suspense>
   );
 };

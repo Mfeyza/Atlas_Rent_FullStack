@@ -1,7 +1,10 @@
 import React from "react";
 import { Box, Container, Grid, Typography } from "@mui/material";
+import { useLocation } from "react-router-dom";
 
 const Footer = () => {
+  const { pathname } = useLocation() || {};
+  if (["/login"].includes(pathname)) return;
   return (
     <Box
       sx={{
