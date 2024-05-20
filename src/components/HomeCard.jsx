@@ -24,9 +24,10 @@ export default function HomeCard({ house }) {
 
   return (
     <>
-      <Card sx={{ display: "flex", minHeight: "240px" ,"cursor":"pointer"}}  onClick={handleDetails}>
+      <Card sx={{ display: "flex",  minHeight: "240px" ,"cursor":"pointer"}}  onClick={handleDetails}>
         <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <CardContent sx={{ flex: "1 0 auto" }}>
+          <CardContent sx={{ display:"flex", flexDirection:"column" ,justifyContent:"space-between",height:"100%" }}>
+          
             <Typography component="div" variant="h7">
               {title}
             </Typography>
@@ -48,8 +49,12 @@ export default function HomeCard({ house }) {
               </Tooltip>
               <div style={{ marginLeft: "5px" }}>{numberOfRooms}</div>
             </Box>
+          
           </CardContent>
+          
         </Box>
+        
+        
 
         <CardMedia
           component="img"

@@ -29,7 +29,7 @@ function Navbar() {
   const navigate = useNavigate();
   const id = useSelector((state) => state.auth._id);
   const user = useSelector((state) => state.auth.user);
-  const imageURL = useSelector((state) => state.auth.imageURL);
+  const image = useSelector((state) => state.auth.image);
   const firstName = useSelector((state) => state.auth.firstName);
   const lastName = useSelector((state) => state.auth.lastName);
 
@@ -185,7 +185,7 @@ function Navbar() {
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
               <Typography sx={{mr:"1rem", fontFamily: "monospace",
               fontWeight: 700,}}>{firstName} {lastName}</Typography>
-                <Avatar alt="Remy Sharp" src= {user ? imageURL : "/static/images/avatar/2.jpg" }/>
+                <Avatar alt="Remy Sharp" src= {user ? image : "/static/images/avatar/2.jpg" }/>
               </IconButton>
             </Tooltip>
             <Menu

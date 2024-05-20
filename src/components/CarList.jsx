@@ -24,7 +24,7 @@ const CarList = ({ carList, myReservation }) => {
   return (
     <>
       {carList?.map((car) => (
-        <Card key={car._id} sx={{ maxWidth: 225 }}>
+        <Card key={car._id} sx={{ maxWidth: 225 ,   backgroundColor:"rgba(191, 204, 204, 0.158)",mb:4}}>
           <CardHeader
             avatar={
               <Avatar

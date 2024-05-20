@@ -7,15 +7,7 @@ import CardMedia from "@mui/material/CardMedia";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import {
-  Button,
-  Container,
-  Fade,
-  Grid,
-  Modal,
-  Stack,
-  Tooltip,
-} from "@mui/material";
+import { Button, Container, Fade, Grid, Modal, Tooltip } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -31,6 +23,7 @@ import NoCrashTwoToneIcon from "@mui/icons-material/NoCrashTwoTone";
 import Zoom from "@mui/material/Zoom";
 import PaymentsIcon from "@mui/icons-material/Payments";
 import Backdrop from "@mui/material/Backdrop";
+import NightShelterOutlinedIcon from "@mui/icons-material/NightShelterOutlined";
 
 dayjs.extend(localeData);
 dayjs.extend(customParseFormat);
@@ -143,7 +136,14 @@ const Index = () => {
         </Fade>
       </Modal>
       {loader ? (
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "80vh",
+          }}
+        >
           <CircularProgress />
         </Box>
       ) : (
@@ -169,12 +169,13 @@ const Index = () => {
                         display: "flex",
                         mt: "3rem",
                         minWidth: "250px",
-                        minHeight: "300px"
+                        minHeight: "300px",
+                        backgroundColor: "rgba(191, 204, 204, 0.158)",
                       }}
                     >
                       <CardMedia
                         component="img"
-                        sx={{ width: 200,maxHeight:"100vh" }}
+                        sx={{ width: 200, maxHeight: "100vh" }}
                         image={
                           (house?.images && house?.images[0]) || defaulthouse
                         }
@@ -196,46 +197,68 @@ const Index = () => {
                               <LocationOnIcon /> {house?.location}
                             </Typography>
                             <Typography variant="h8" color="text.secondary">
-                              {days} gece
+                              {" "}
+                              {dayjs(start).format("D MMMM")} -{" "}
+                              {dayjs(end).format("D MMMM")}
                             </Typography>
-                            <Box>
-                              <Typography variant="h8" color="text.secondary">
+                            <Typography
+                              variant="h8"
+                              color="text.secondary"
+                              sx={{ display: "flex", alignItems: "center" }}
+                            >
+                              <span>
                                 {" "}
-                                {dayjs(start).format("D MMMM")} -{" "}
-                                {dayjs(end).format("D MMMM")}
-                              </Typography>
-                              <Typography
-                                sx={{ display: "flex", alignItems: "center" }}
-                                variant="h8"
-                                color="text.secondary"
-                              >
-                                {" "}
-                                <PaymentsIcon />{" "}
-                                <span style={{ marginLeft: "5px" }}>
-                                  {amountHouse} ₺
-                                </span>
-                              </Typography>
-                              {car && (
-                                <Tooltip
-                                  TransitionComponent={Zoom}
-                                  title={
-                                    <Box>
-                                      <Typography>{car?.brand}</Typography>
-                                      <Typography>{amountCar}₺</Typography>
-                                      <Typography></Typography>
-                                    </Box>
-                                  }
-                                >
-                                  <br />
-                                  <NoCrashTwoToneIcon />
-                                </Tooltip>
-                              )}
+                                <NightShelterOutlinedIcon />
+                              </span>{" "}
+                              <span> {days} gece</span>
+                            </Typography>
 
-                              <Button onClick={() => showSureModal(_id)}>
-                                Rezervasyonu İptal Et
-                              </Button>
-                            </Box>
+                            {car && (
+                              <Tooltip
+                                TransitionComponent={Zoom}
+                                title={
+                                  <Box>
+                                    <Typography>{car?.brand}</Typography>
+                                    <Typography>{amountCar}₺</Typography>
+                                    <Typography></Typography>
+                                  </Box>
+                                }
+                              >
+                                <Typography
+                                  variant="h8"
+                                  color="text.secondary"
+                                  sx={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    alignSelf: "flex-start",
+                                  }}
+                                >
+                                  <NoCrashTwoToneIcon /> Araç
+                                </Typography>
+                              </Tooltip>
+                            )}
+                            <Typography
+                              sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                mt: 1,
+                              }}
+                              variant="h8"
+                              color="text.secondary"
+                            >
+                              {" "}
+                              <PaymentsIcon />{" "}
+                              <span style={{ marginLeft: "5px" }}>
+                                {amountHouse + amountCar} ₺
+                              </span>
+                            </Typography>
                           </Box>
+                          <Button
+                            sx={{ mt: 2, color: "rgb(132, 132, 179)" }}
+                            onClick={() => showSureModal(_id)}
+                          >
+                            İptal Et
+                          </Button>
                         </CardContent>
                       </Box>
                     </Card>

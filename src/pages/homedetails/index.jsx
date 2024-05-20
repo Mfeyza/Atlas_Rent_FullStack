@@ -1,4 +1,4 @@
-import { Container, Typography, Grid, Tooltip } from "@mui/material";
+import { Container, Typography, Grid, Tooltip, Skeleton } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -95,12 +95,14 @@ const HomeDetails = () => {
               title={createdId?.firstName}
               subheader={start}
             />
+            {loader ? <Skeleton variant="rounded" width={"100%"} height={400} /> :
             <CardMedia
-              component="img"
-              height="400"
-              image={(images && images[0]) || defaulthouse}
-              alt="House image"
-            />
+            component="img"
+            height="400"
+            image={(images && images[0]) || defaulthouse}
+            alt="House image"
+          />}
+            
             <CardContent>
               <Typography variant="h5" color="text.secondary">
                 {title}
