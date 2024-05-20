@@ -8,8 +8,7 @@ import Footer from "../components/Footer";
 const Homepage = lazy(() => import("../pages/homepage"));
 const HomeDetails = lazy(() => import("../pages/homedetails"));
 const SignIn = lazy(() => import("../pages/signIn"));
- const MyReservation =lazy(() => import("../pages/myreservation"))
-
+const MyReservation = lazy(() => import("../pages/myreservation"));
 
 const AppRouter = () => {
   return (
@@ -23,21 +22,18 @@ const AppRouter = () => {
         </Backdrop>
       }
     >
-       
       <Router>
-      <Navbar />
+        <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/details/:id" element={<HomeDetails />} />
-          <Route path="/register" element={<SignIn />} />
-          {/* <Route path="/myreservation" element={<PrivateRouter/>} >  */}
-             <Route path="/myreservation/:id" element={<MyReservation />} />
+          <Route path="/Login" element={<SignIn />} />
 
-            
-        
+          {/* <Route path="/myreservation" element={<PrivateRouter/>} >  */}
+          <Route path="/myreservation" element={<MyReservation />} />
         </Routes>
       </Router>
-      <Footer/>
+      <Footer />
     </Suspense>
   );
 };

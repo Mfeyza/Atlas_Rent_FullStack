@@ -4,12 +4,14 @@ import axios from "axios";
 export const login = createAsyncThunk(
   "login",
   async ({ values, navigate }, { rejectWithValue }) => {
+    
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_BASE_URL}/auth/login`,
         values
       );
-      navigate("/myreservation");
+      const {_id} =  response.data.user
+      navigate("/myReservation");
       return response;
     } catch (error) {
       return rejectWithValue("olmadı");

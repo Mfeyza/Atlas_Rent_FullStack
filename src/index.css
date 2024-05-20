@@ -3,3 +3,22 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 }
+
+.carousel-container {
+    max-height: 300px; 
+    overflow: hidden;
+    border-radius: 15px;
+  }
+  
+  .carousel-item {
+    height: 300px; /* Carousel öğesinin yüksekliğini belirleyin */
+  }
+  
+  .carousel-item img {
+    height: 100%; /* Resmin kapsayıcı yüksekliğini doldurmasını sağlayın */
+    width: 100%; /* Genişliği %100 olarak ayarlayın */
+    object-fit: cover; /* Resmin alanı doldurmasını sağlayın */
+  }
+  .atlas{
+    color:rgb(21, 22, 22)
+  }

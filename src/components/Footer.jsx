@@ -8,7 +8,7 @@ const Footer = () => {
         width: "100%",
         height: "auto",
         padding:"1.5rem",
-        backgroundColor:"darkblue"
+        backgroundColor: "rgb(132, 132, 179)"
       }}
     >
       <Container maxWidth="lg">
@@ -16,6 +16,7 @@ const Footer = () => {
           <Grid item xs={12}>
             <Typography variant="h6"
             noWrap
+            className="atlas"
             component="a"
             sx={{
               m: 2,

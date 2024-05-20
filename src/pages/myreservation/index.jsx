@@ -169,11 +169,12 @@ const Index = () => {
                         display: "flex",
                         mt: "3rem",
                         minWidth: "250px",
+                        minHeight: "300px"
                       }}
                     >
                       <CardMedia
                         component="img"
-                        sx={{ width: 151, objectFit: "cover" }}
+                        sx={{ width: 200,maxHeight:"100vh" }}
                         image={
                           (house?.images && house?.images[0]) || defaulthouse
                         }

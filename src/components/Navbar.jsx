@@ -13,7 +13,6 @@ import {
   MenuItem,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import AdbIcon from "@mui/icons-material/Adb";
 import { useLocation, useNavigate } from "react-router-dom";
 import { logout } from "../thunks/auththunk";
 import { useDispatch, useSelector } from "react-redux";
@@ -29,6 +28,10 @@ function Navbar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const id = useSelector((state) => state.auth._id);
+  const user = useSelector((state) => state.auth.user);
+  const imageURL = useSelector((state) => state.auth.imageURL);
+  const firstName = useSelector((state) => state.auth.firstName);
+  const lastName = useSelector((state) => state.auth.lastName);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -48,13 +51,16 @@ function Navbar() {
     dispatch(logout());
     console.log("Logout işlemi gerçekleştiriliyor...");
   };
-  const navigateHome = () => {
-    navigate("/");
-  };
-  if (["/register"].includes(pathname)) return;
+ 
+  if (["/Login"].includes(pathname)) return;
   const handleSettings = (set) => {
     if (set === "Profil") {
-      navigate(`/myReservation/${id}`);
+      if(user){
+        navigate(`/myReservation/${id}`);
+      }else{
+        navigate("/Login")
+      }
+      
       return;
     }
     if (set === "Çıkış") {
@@ -63,7 +69,7 @@ function Navbar() {
     }
   };
   return (
-    <AppBar sx={{ backgroundColor: "darkblue" }} position="static">
+    <AppBar sx={{ backgroundColor: "rgb(132, 132, 179)" }} position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Avatar
@@ -75,16 +81,17 @@ function Navbar() {
             variant="h6"
             noWrap
             component="a"
+            className="atlas"
             sx={{
               m: 2,
               display: { xs: "none", md: "flex" },
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-
+              "cursor":"pointer",
               textDecoration: "none",
             }}
-            onClick={navigateHome}
+            onClick={()=> navigate("/")}
           >
             Atlas Rent
           </Typography>
@@ -170,9 +177,12 @@ function Navbar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
+            
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              <Typography sx={{mr:"1rem", fontFamily: "monospace",
+              fontWeight: 700,}}>{firstName} {lastName}</Typography>
+                <Avatar alt="Remy Sharp" src= {user ? imageURL : "/static/images/avatar/2.jpg" }/>
               </IconButton>
             </Tooltip>
             <Menu

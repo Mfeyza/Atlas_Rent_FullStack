@@ -12,7 +12,7 @@ const authSlice=createSlice({
         loading:false,
         error:false,
         token:"",
-        image:"",
+        imageURL:"",
         _id:"",
         lastName:"",
         firstName:"",
@@ -36,7 +36,7 @@ const authSlice=createSlice({
             state.loading=false
             state.error=false
             state.user=payload?.data.user.username
-            state.image=payload?.data.user.image
+            state.image=payload?.data.user.imageURL
             state.token=payload?.data.token
             state._id=payload?.data.user._id
             state.firstName=payload?.data.user.firstName
@@ -66,7 +66,7 @@ const authSlice=createSlice({
         state.loading = false;
         state.error = false;
         state.user = payload?.data.data.username;
-        state.image=payload?.data.data.image
+        state.image=payload?.data.data.imageURL
         state.token = payload?.data.token; 
         state._id=payload?.data.data._id;
         state.firstName=payload?.data.data.firstName;
@@ -74,6 +74,10 @@ const authSlice=createSlice({
         state.email=payload?.data.data.email
         state.password=payload?.data.data.password
         state.username=payload?.data.data.username
+        state.phoneNumber=payload?.data.user.phoneNumber
+        state.isActive=payload?.data.user.isActive
+        state.isAdmin=payload?.data.user.isAdmin
+        state.isLandLord=payload?.data.user.isLandLord
        
       })
       .addCase(register.rejected, (state, { payload }) => {
@@ -83,13 +87,18 @@ const authSlice=createSlice({
       .addCase(logout.fulfilled,(state)=>{
         state.user = null;
         state.token = "";
-        state.image="";
+        state.imageURL="";
         state._id="";
         state.firstName="";
         state.lastName="";
         state.email="";
         state.password="";
         state.username="";
+        state.phoneNumber=""
+        state.isActive=false
+        state.isAdmin=false
+        state.isLandLord=false
+       
       })}
 
 

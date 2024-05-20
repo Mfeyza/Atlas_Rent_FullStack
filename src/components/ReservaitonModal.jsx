@@ -26,7 +26,6 @@ const style = {
 
 export default function BasicModal({ pricePerDay }) {
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const navigate = useNavigate();
   const token = useSelector((state) => state.auth.token);
@@ -86,6 +85,13 @@ export default function BasicModal({ pricePerDay }) {
   const handleNewReservation = () => {
     navigate(`/myReservation/${id}`);
   };
+  const handleOpen = () =>{
+    if(token){
+      setOpen(true);
+    }else{
+      navigate("/login")
+    }
+  } 
   const days = dayjs(checkOutDate).diff(dayjs(checkInDate), "day");
   return (
     <div>
