@@ -15,6 +15,10 @@ Kullanıcı profili yönetimi
 ###Kayıt Olma ve Giriş Yapma: 
 
 Kullanıcılar, uygulamaya kayıt olabilir ve giriş yapabilirler.
+
+email":misafir@.com,
+password:Misafir123!
+
 ### Ev ve Araba Görüntüleme:
 
 Kullanıcılar, mevcut evleri ve arabaları görüntüleyebilir, detaylarını inceleyebilirler.
@@ -43,4 +47,14 @@ Giriş Sayfası: Hesabınıza giriş yapın veya yeni bir hesap oluşturun.
 Rezervasyon Sayfası: Mevcut rezervasyonlarınızı görüntüleyin ve yönetin.
 
 ![image](https://github.com/Mfeyza/Atlas_Rent_FullStack/assets/144602340/bd14133b-47a9-47f5-a8c2-ad41b77aafa2)
+![image](https://github.com/Mfeyza/Atlas_Rent_FullStack/assets/144602340/c069deaf-a1f9-4d09-8fa0-90edc8584d8d)
+![image](https://github.com/Mfeyza/Atlas_Rent_FullStack/assets/144602340/fb855f8e-26b2-46ae-ac9b-892adfbacc34)
+![image](https://github.com/Mfeyza/Atlas_Rent_FullStack/assets/144602340/768d4334-efc4-4658-9649-036c784266e9)
+![image](https://github.com/Mfeyza/Atlas_Rent_FullStack/assets/144602340/88a7fc08-6a23-4c99-b215-b20f611b2ab1)
+![image](https://github.com/Mfeyza/Atlas_Rent_FullStack/assets/144602340/cc124468-bf62-432b-864d-f5f0cf2aea7b)
+
+
+
+
+
 
