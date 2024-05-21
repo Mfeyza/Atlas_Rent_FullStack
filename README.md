@@ -42,44 +42,5 @@ Detay Sayfası: Belirli bir evin veya arabanın detaylarını görüntüleyin.
 Giriş Sayfası: Hesabınıza giriş yapın veya yeni bir hesap oluşturun.
 Rezervasyon Sayfası: Mevcut rezervasyonlarınızı görüntüleyin ve yönetin.
 
-rent-app/
-├── src/
-│   ├── app/
-│   │   └── store.jsx
-│   ├── assets/
-│   │   └── house.jpg
-│   ├── components/
-│   │   ├── CarList.jsx
-│   │   ├── CarReservationModal.jsx
-│   │   ├── Footer.jsx
-│   │   ├── HomeCard.jsx
-│   │   ├── HomeCarousel.jsx
-│   │   ├── Navbar.jsx
-│   │   └── ReservationModal.jsx
-│   ├── features/
-│   │   └── authSlice.jsx
-│   ├── helper/
-│   │   └── methods.js
-│   ├── pages/
-│   │   ├── homedetails/
-│   │   │   └── index.jsx
-│   │   ├── homepage/
-│   │   │   └── index.jsx
-│   │   ├── myreservation/
-│   │   │   └── index.jsx
-│   │   ├── signin/
-│   │   │   └── index.jsx
-│   ├── router/
-│   │   ├── AppRouter.jsx
-│   │   └── PrivateRouter.jsx
-│   ├── thunks/
-│   │   ├── authThunk.jsx
-│   │   └── index.jsx
-│   ├── App.js
-│   ├── App.css
-│   ├── index.js
-├── .env
-├── .gitignore
-├── package-lock.json
-├── package.json
-└── README.md
+![image](https://github.com/Mfeyza/Atlas_Rent_FullStack/assets/144602340/bd14133b-47a9-47f5-a8c2-ad41b77aafa2)
+
