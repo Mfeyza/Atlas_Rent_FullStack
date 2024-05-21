@@ -95,7 +95,9 @@ export default function CarReservationModal({
 
   const today = dayjs();
   const handleNewReservation = () => {
-    navigate(`/myReservation/${id}`);
+    navigate("/myReservation");
+    handleClose()
+
   };
 
   const days = dayjs(checkOutDate).diff(dayjs(checkInDate), "day");

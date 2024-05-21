@@ -79,11 +79,11 @@ export default function BasicModal({ pricePerDay }) {
       checkOutDate: null,
     });
   };
-  const { amount} = reservation?.data || {};
+  const { amountHouse} = reservation?.data || {};
 
   const today = dayjs();
   const handleNewReservation = () => {
-    navigate(`/myReservation/${id}`);
+    navigate(`/myReservation`);
   };
   const handleOpen = () =>{
     if(token){
@@ -159,7 +159,7 @@ export default function BasicModal({ pricePerDay }) {
               Rezervasyon Yap
             </Button>
           </Box>
-          {amount > 0 && (
+          {amountHouse > 0 && (
             <Box
               sx={{
                 display: "flex",
@@ -172,7 +172,7 @@ export default function BasicModal({ pricePerDay }) {
                 <i>
                   {pricePerDay}₺ x {days} gece{" "}
                 </i>{" "}
-                = <b>{amount} ₺</b>
+                = <b>{amountHouse} ₺</b>
               </Typography>
             </Box>
           )}

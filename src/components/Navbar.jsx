@@ -19,7 +19,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 
 const pages = ["Hakkımızda"];
-const settings = ["Profil", "Çıkış"];
+const settings = ["My Reservation", "Çıkış"];
 
 function Navbar() {
   const { pathname } = useLocation() || {};
@@ -54,7 +54,7 @@ function Navbar() {
   
   const handleSettings = (set) => {
     handleCloseUserMenu()
-    if (set === "Profil") {
+    if (set === "My Reservation") {
       if(user){
         navigate("/myReservation");
       }else{

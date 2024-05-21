@@ -26,8 +26,6 @@ const AppRouter = () => {
           <Route path="/" element={<Homepage />} />
           <Route path="/details/:id" element={<HomeDetails />} />
           <Route path="/Login" element={<SignIn />} />
-
-          {/* <Route path="/myreservation" element={<PrivateRouter/>} >  */}
           <Route path="/myreservation" element={<MyReservation />} />
         </Routes>
         <Footer />

@@ -245,7 +245,7 @@ const Index = () => {
                               {" "}
                               <PaymentsIcon />{" "}
                               <span style={{ marginLeft: "5px" }}>
-                                {amountHouse + amountCar} ₺
+                              {amountCar ? `${amountHouse + amountCar} ₺` : `${amountHouse} ₺`}
                               </span>
                             </Typography>
                           </Box>
@@ -263,15 +263,28 @@ const Index = () => {
               }
             )}
           </Grid>
-
-          <Box>
-            <Typography sx={{ mt: "5rem" }} component="div" variant="h7">
-              Şunlara da göz atmak isteyebilirsiniz
-            </Typography>
-          </Box>
-          <Box sx={{ display: "flex", flexWrap: "wrap", gap: "5rem" }}>
-            <CarList myReservation={myReservation} carList={carList} />
-          </Box>
+          {myReservation.length > 0 ? (
+            <Box>
+              <Typography
+                sx={{
+                  mt: "5rem",
+                  fontFamily: "monospace",
+                  fontWeight: "600",
+                  mb: 5,
+                }}
+                component="div"
+                variant="h7"
+              >
+                Şunlara da göz atmak isteyebilirsiniz 👇🏻
+              </Typography>
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: "5rem" }}>
+                <CarList myReservation={myReservation} carList={carList} />
+              </Box>
+            </Box>
+          ) : (
+            <Box sx={{mt:10}}>     <Typography>Henüz bir rezervasyonunuz yok.</Typography></Box>
+        
+          )}
         </>
       )}
     </Container>
