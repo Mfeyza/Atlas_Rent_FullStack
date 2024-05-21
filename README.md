@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# Rent-App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Rent-App, ev ve araba kiralama hizmetleri sunan bir web uygulamasıdır. Kullanıcılar, mevcut evleri ve arabaları görüntüleyebilir, rezervasyon yapabilir ve kiralama geçmişlerini yönetebilirler.
 
-## Available Scripts
+## Özellikler
 
-In the project directory, you can run:
+Kullanıcı kaydı ve girişi
+Mevcut evleri ve arabaları görüntüleme
+Ev ve araba rezervasyonu yapma
+Rezervasyon geçmişini görüntüleme ve yönetme
+Kullanıcı profili yönetimi
 
-### `yarn start`
+### Kullanıcı İşlevleri
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+###Kayıt Olma ve Giriş Yapma: 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Kullanıcılar, uygulamaya kayıt olabilir ve giriş yapabilirler.
 
-### `yarn test`
+email":misafir@.com,
+password:Misafir123!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Ev ve Araba Görüntüleme:
 
-### `yarn build`
+Kullanıcılar, mevcut evleri ve arabaları görüntüleyebilir, detaylarını inceleyebilirler.
+### Rezervasyon Yapma: 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Kullanıcılar, seçtikleri ev veya arabayı belirli tarihler arasında rezerve edebilirler.
+### Rezervasyon Yönetimi: 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Kullanıcılar, yaptıkları rezervasyonları görüntüleyebilir ve iptal edebilirler.
+### Profil Yönetimi: 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Kullanıcılar, profil bilgilerini görüntüleyebilir ve güncelleyebilirler.
 
-### `yarn eject`
+### Kullanılan Teknolojiler
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Frontend: React, Redux, React Router, Material-UI, Bootstrap
+Backend: Node.js, Express
+Veritabanı: MongoDB
+Diğer Araçlar: Axios, dayjs, Formik, Yup, Redux Toolkit
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Kullanım
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Ana Sayfa: Mevcut evleri ve arabaları görüntüleyin.
+Detay Sayfası: Belirli bir evin veya arabanın detaylarını görüntüleyin.
+Giriş Sayfası: Hesabınıza giriş yapın veya yeni bir hesap oluşturun.
+Rezervasyon Sayfası: Mevcut rezervasyonlarınızı görüntüleyin ve yönetin.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![image](https://github.com/Mfeyza/Atlas_Rent_FullStack/assets/144602340/bd14133b-47a9-47f5-a8c2-ad41b77aafa2)
+![image](https://github.com/Mfeyza/Atlas_Rent_FullStack/assets/144602340/c069deaf-a1f9-4d09-8fa0-90edc8584d8d)
+![image](https://github.com/Mfeyza/Atlas_Rent_FullStack/assets/144602340/fb855f8e-26b2-46ae-ac9b-892adfbacc34)
+![image](https://github.com/Mfeyza/Atlas_Rent_FullStack/assets/144602340/768d4334-efc4-4658-9649-036c784266e9)
+![image](https://github.com/Mfeyza/Atlas_Rent_FullStack/assets/144602340/88a7fc08-6a23-4c99-b215-b20f611b2ab1)
+![image](https://github.com/Mfeyza/Atlas_Rent_FullStack/assets/144602340/cc124468-bf62-432b-864d-f5f0cf2aea7b)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
