@@ -26,7 +26,7 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal({ carId, pricePerDay, myReservation }) {
+export default function CarReservationModal({ carId, pricePerDay, myReservation }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => {

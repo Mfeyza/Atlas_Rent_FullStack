@@ -231,6 +231,7 @@ const Index = () => {
                                     display: "flex",
                                     alignItems: "center",
                                     alignSelf: "flex-start",
+                                    cursor:"pointer"
                                   }}
                                 >
                                   <NoCrashTwoToneIcon /> Araç
