@@ -48,7 +48,7 @@ const HomeDetails = () => {
   useEffect(() => {
     setLoader(true);
     axios
-      .get(`https://rent-project.onrender.com/houses/${params.id}`)
+      .get(`https://atlas-rent-be.vercel.app/houses/${params.id}`)
       .then((res) => {
         const houseData = res?.data.data || {};
         setHouseDetail(houseData);

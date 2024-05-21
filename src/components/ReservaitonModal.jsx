@@ -44,7 +44,7 @@ export default function BasicModal({ pricePerDay }) {
     if (checkInDate && checkOutDate) {
       axios
         .post(
-          `https://rent-project.onrender.com/reservations`,
+          `https://atlas-rent-be.vercel.app//reservations`,
           {
             startDate: dayjs(checkInDate).format("YYYY-MM-DD"),
             endDate: dayjs(checkOutDate).format("YYYY-MM-DD"),

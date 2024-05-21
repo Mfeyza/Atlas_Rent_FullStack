@@ -22,7 +22,7 @@ const Homepage = () => {
   const getHouse = (item) => {
     axios
       .get(
-        `https://rent-project.onrender.com/houses${
+        `https://atlas-rent-be.vercel.app/houses${
           item?.keyword ? `?search=${item.keyword}` : ""
         }`
       )

@@ -54,14 +54,14 @@ const Index = () => {
     try {
       const [reservationResponse, carsResponse] = await Promise.all([
         axios.get(
-          `https://rent-project.onrender.com/reservations?author=${id}`,
+          `https://atlas-rent-be.vercel.app/reservations?author=${id}`,
           {
             headers: {
               Authorization: `Token ${token}`,
             },
           }
         ),
-        axios.get("https://rent-project.onrender.com/cars"),
+        axios.get("https://atlas-rent-be.vercel.app/cars"),
       ]);
 
       const reservationData = reservationResponse?.data.data || {};
@@ -82,7 +82,7 @@ const Index = () => {
   const handleResDelete = () => {
     axios
       .delete(
-        `https://rent-project.onrender.com/reservations/${reservationId}`,
+        `https://atlas-rent-be.vercel.app/reservations/${reservationId}`,
         {
           headers: {
             Authorization: `Token ${token}`,
