@@ -47,6 +47,48 @@ Detay Sayfası: Belirli bir evin veya arabanın detaylarını görüntüleyin.
 Giriş Sayfası: Hesabınıza giriş yapın veya yeni bir hesap oluşturun.
 Rezervasyon Sayfası: Mevcut rezervasyonlarınızı görüntüleyin ve yönetin.
 
+
+### Rent-App
+### Live: https://atlas-rent.vercel.app/
+### Rent-App is a web application that provides house and car rental services. Users can view available houses and cars, make reservations, and manage their rental history.
+
+### Features
+User registration and login
+Viewing available houses and cars
+Making house and car reservations
+Viewing and managing reservation history
+Managing user profiles
+User Functions
+Registration and Login
+Users can register and log in to the application.
+
+## email: misafir@.com,
+## password: Misafir123!
+
+### Viewing Houses and Cars
+Users can view available houses and cars and examine their details.
+
+### Making Reservations
+Users can reserve the selected house or car for specific dates.
+
+### Managing Reservations
+Users can view and cancel their reservations.
+
+### Profile Management
+Users can view and update their profile information.
+
+### Technologies Used
+Frontend: React, Redux, React Router, Material-UI, Bootstrap
+Backend: Node.js, Express
+Database: MongoDB
+Other Tools: Axios, dayjs, Formik, Yup, Redux Toolkit
+Usage
+Home Page: View available houses and cars.
+Details Page: View the details of a specific house or car.
+Login Page: Log in to your account or create a new account.
+Reservation Page: View and manage your current reservations.
+
+
 ![image](https://github.com/Mfeyza/Atlas_Rent_FullStack/assets/144602340/bd14133b-47a9-47f5-a8c2-ad41b77aafa2)
 ![image](https://github.com/Mfeyza/Atlas_Rent_FullStack/assets/144602340/c069deaf-a1f9-4d09-8fa0-90edc8584d8d)
 ![image](https://github.com/Mfeyza/Atlas_Rent_FullStack/assets/144602340/fb855f8e-26b2-46ae-ac9b-892adfbacc34)
