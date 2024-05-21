@@ -9,7 +9,7 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import axios from "axios";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
 
 import { InputLabel, MenuItem, FormControl, Select } from "@mui/material";
@@ -26,7 +26,11 @@ const style = {
   p: 4,
 };
 
-export default function CarReservationModal({ carId, pricePerDay, myReservation }) {
+export default function CarReservationModal({
+  carId,
+  pricePerDay,
+  myReservation,
+}) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
@@ -49,8 +53,6 @@ export default function CarReservationModal({ carId, pricePerDay, myReservation 
   });
 
   const { checkInDate, checkOutDate } = checkDate || {};
-  const params = useParams();
-
   const handleReservation = () => {
     if (checkInDate && checkOutDate) {
       axios
@@ -126,8 +128,8 @@ export default function CarReservationModal({ carId, pricePerDay, myReservation 
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-        <Typography variant="h6"> {pricePerDay} ₺ gece</Typography>
-        <FormControl sx={{mt:2 ,width: "100%" }}>
+          <Typography variant="h6"> {pricePerDay} ₺ gece</Typography>
+          <FormControl sx={{ mt: 2, width: "100%" }}>
             <InputLabel id="demo-controlled-open-select-label">
               Rezervasyon Seç
             </InputLabel>
@@ -148,7 +150,7 @@ export default function CarReservationModal({ carId, pricePerDay, myReservation 
               })}
             </Select>
           </FormControl>
-         
+
           <Box
             sx={{
               display: "flex",
@@ -205,7 +207,7 @@ export default function CarReservationModal({ carId, pricePerDay, myReservation 
               </Typography>
             </Box>
           )} */}
-        
+
           <Box sx={{ display: "flex", justifyContent: "center" }}>
             <Button
               onClick={handleNewReservation}

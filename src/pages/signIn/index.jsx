@@ -9,8 +9,6 @@ import {
   Link,
   Grid,
   Box,
-  Typography,
-  Container,
   Tabs,
   Tab,
   Paper,
@@ -21,17 +19,6 @@ import { styled } from "@mui/system";
 import { login, register } from "../../thunks/auththunk";
 
 const theme = createTheme();
-
-const FormContainer = styled(Container)({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  backgroundColor: "#ffffff",
-  padding: theme.spacing(4),
-  borderRadius: "10px",
-  boxShadow: "0 3px 5px rgba(0,0,0,0.1)",
-});
-
 const FormBox = styled(Box)({
   width: "100%",
   marginTop: theme.spacing(3),

@@ -2,9 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import Navbar from "../components/Navbar";
 import { Backdrop, CircularProgress } from "@mui/material";
-import PrivateRouter from "./PrivateRouter";
 import Footer from "../components/Footer";
-
 const Homepage = lazy(() => import("../pages/homepage"));
 const HomeDetails = lazy(() => import("../pages/homedetails"));
 const SignIn = lazy(() => import("../pages/signIn"));
@@ -34,7 +32,6 @@ const AppRouter = () => {
         </Routes>
         <Footer />
       </Router>
-    
     </Suspense>
   );
 };

@@ -8,7 +8,6 @@ import {
   CardMedia,
   Typography,
   Tooltip,
-  Button,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 

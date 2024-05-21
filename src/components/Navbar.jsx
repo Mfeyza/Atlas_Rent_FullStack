@@ -27,7 +27,6 @@ function Navbar() {
   const [anchorElUser, setAnchorElUser] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const id = useSelector((state) => state.auth._id);
   const user = useSelector((state) => state.auth.user);
   const image = useSelector((state) => state.auth.image);
   const firstName = useSelector((state) => state.auth.firstName);

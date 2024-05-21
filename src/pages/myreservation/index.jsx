@@ -1,14 +1,11 @@
 import * as React from "react";
-import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { Button, Container, Fade, Grid, Modal, Tooltip } from "@mui/material";
-import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
@@ -41,8 +38,6 @@ const style = {
 };
 
 const Index = () => {
-  const theme = useTheme();
-  const params = useParams();
   const [myReservation, setMyReservation] = useState([]);
   const token = useSelector((state) => state.auth.token);
   const id = useSelector((state) => state.auth._id);

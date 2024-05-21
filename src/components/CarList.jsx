@@ -15,12 +15,6 @@ import PaymentsIcon from "@mui/icons-material/Payments";
 import CarReservationModal from "../components/CarReservationModal";
 
 const CarList = ({ carList, myReservation }) => {
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
-
   return (
     <>
       {carList?.map((car) => (

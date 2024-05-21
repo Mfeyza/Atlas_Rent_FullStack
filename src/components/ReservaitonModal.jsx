@@ -79,7 +79,7 @@ export default function BasicModal({ pricePerDay }) {
       checkOutDate: null,
     });
   };
-  const { amount, _id } = reservation?.data || {};
+  const { amount} = reservation?.data || {};
 
   const today = dayjs();
   const handleNewReservation = () => {

@@ -1,7 +1,7 @@
 import { Container, Typography, Grid, Tooltip, Skeleton } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -14,7 +14,6 @@ import IconButton from "@mui/material/IconButton";
 import { red } from "@mui/material/colors";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import defaulthouse from "../../assets/house.jpg";
-import { useSelector } from "react-redux";
 import PoolIcon from "@mui/icons-material/Pool";
 import WifiIcon from "@mui/icons-material/Wifi";
 import LocalParkingIcon from "@mui/icons-material/LocalParking";
@@ -38,9 +37,7 @@ const ExpandMore = styled((props) => {
 }));
 
 const HomeDetails = () => {
-  const navigate = useNavigate();
   const [expanded, setExpanded] = React.useState(false);
-  const user = useSelector((state) => state.auth.user);
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
@@ -62,7 +59,6 @@ const HomeDetails = () => {
       });
   }, []);
   const {
-    _id,
     images,
     location,
     title,
