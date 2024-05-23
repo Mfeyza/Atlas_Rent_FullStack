@@ -88,7 +88,6 @@ Redux Toolkit
 
 
 
-![image](https://github.com/Mfeyza/Atlas_Rent_FullStack/assets/144602340/bd14133b-47a9-47f5-a8c2-ad41b77aafa2)
 ![image](https://github.com/Mfeyza/Atlas_Rent_FullStack/assets/144602340/c069deaf-a1f9-4d09-8fa0-90edc8584d8d)
 ![image](https://github.com/Mfeyza/Atlas_Rent_FullStack/assets/144602340/fb855f8e-26b2-46ae-ac9b-892adfbacc34)
 ![image](https://github.com/Mfeyza/Atlas_Rent_FullStack/assets/144602340/768d4334-efc4-4658-9649-036c784266e9)
