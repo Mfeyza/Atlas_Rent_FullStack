@@ -6,18 +6,18 @@
 Rent-App is a comprehensive web application that provides house and car rental services. Users can view available houses and cars, make reservations, and manage their rental history efficiently.
 
 ## Features
-## User Authentication: Seamlessly create an account or log in to access the full functionality of the application.
-## Viewing Houses and Cars: Browse through available houses and cars and examine their details.
-## Reservation Management: Reserve houses or cars for specific dates and manage existing reservations.
-## Profile Management: View and update profile information.
+ User Authentication: Seamlessly create an account or log in to access the full functionality of the application.
+ Viewing Houses and Cars: Browse through available houses and cars and examine their details.
+ Reservation Management: Reserve houses or cars for specific dates and manage existing reservations.
+ Profile Management: View and update profile information.
 User Functions
 Registration and Login
 
-## Users can register and log in to the application using:
+ Users can register and log in to the application using:
 Email: misafir@.com
 Password: Misafir123!
 
-## Viewing Houses and Cars
+ Viewing Houses and Cars
 Users can view available houses and cars and check their details.
 Making Reservations
 Users can reserve selected houses or cars for specific dates.
