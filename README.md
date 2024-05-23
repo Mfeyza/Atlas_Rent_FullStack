@@ -105,6 +105,33 @@ Users can view and update their profile information.
 ![image](https://github.com/Mfeyza/Atlas_Rent_FullStack/assets/144602340/88a7fc08-6a23-4c99-b215-b20f611b2ab1)
 ![image](https://github.com/Mfeyza/Atlas_Rent_FullStack/assets/144602340/cc124468-bf62-432b-864d-f5f0cf2aea7b)
 
+## Getting Started
+
+To run the application on your local machine, follow these steps:
+
+1. Clone the project to your computer:
+ git clone https://github.com/Mfeyza/Atlas_Rent_FullStack.git
+
+2. Open your terminal and navigate to the project directory:
+ cd rent-app
+
+3. Install the dependencies:
+npm install
+
+4. Start the application:
+npm start
+
+5. Open your web browser and visit **http://localhost:3000** to explore the Rent-App.
+
+## Contribution
+Welcome contributions to enhance the Rent-App! If you find any bugs or have ideas for improvements, please open an issue or submit a pull request. Your valuable input is appreciated!
+
+## License
+
+Rent-App is licensed under the MIT License. Feel free to use, modify, and distribute the code as per the terms of the license.
+
+
+
 
 
 
