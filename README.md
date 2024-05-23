@@ -1,5 +1,51 @@
-# Rent-App
-### Canlı :  https://atlas-rent.vercel.app/
+# Atlas Rent-App
+### Live Link :  https://atlas-rent.vercel.app/
+
+
+## Description:
+Rent-App is a comprehensive web application that provides house and car rental services. Users can view available houses and cars, make reservations, and manage their rental history efficiently.
+
+## Features
+User Authentication: Seamlessly create an account or log in to access the full functionality of the application.
+Viewing Houses and Cars: Browse through available houses and cars and examine their details.
+Reservation Management: Reserve houses or cars for specific dates and manage existing reservations.
+Profile Management: View and update profile information.
+User Functions
+Registration and Login
+Users can register and log in to the application using:
+Email: misafir@.com
+Password: Misafir123!
+Viewing Houses and Cars
+Users can view available houses and cars and check their details.
+Making Reservations
+Users can reserve selected houses or cars for specific dates.
+Managing Reservations
+Users can view their reservation history and cancel existing reservations.
+Profile Management
+Users can view and update their profile information.
+
+## Technologies Used
+
+# Frontend:
+React
+Redux
+React Router
+Material-UI
+Bootstrap
+
+#Backend:
+Node.js
+Express
+
+# Database:
+MongoDB
+
+# Other Tools:
+Axios
+dayjs
+Formik
+Yup
+Redux Toolkit
 
 Rent-App, ev ve araba kiralama hizmetleri sunan bir web uygulamasıdır. Kullanıcılar, mevcut evleri ve arabaları görüntüleyebilir, rezervasyon yapabilir ve kiralama geçmişlerini yönetebilirler.
 
