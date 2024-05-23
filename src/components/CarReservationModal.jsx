@@ -57,7 +57,7 @@ export default function CarReservationModal({
     if (checkInDate && checkOutDate) {
       axios
         .put(
-          `https://atlas-rent-be.vercel.app//reservations/${reservationSelect._id}`,
+          `https://atlas-rent-be.vercel.app/reservations/${reservationSelect._id}`,
           {
             startDate: dayjs(checkInDate).format("YYYY-MM-DD"),
             endDate: dayjs(checkOutDate).format("YYYY-MM-DD"),
