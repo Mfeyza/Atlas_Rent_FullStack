@@ -23,7 +23,7 @@ export const register = createAsyncThunk(
   async ({ values, navigate }, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_BASE_URL}users`,
+        `${process.env.REACT_APP_BASE_URL}/users`,
         values
       );
       navigate("/blogs");
