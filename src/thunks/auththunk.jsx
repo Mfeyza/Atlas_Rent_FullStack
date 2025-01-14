@@ -26,7 +26,7 @@ export const register = createAsyncThunk(
         `${process.env.REACT_APP_BASE_URL}/users`,
         values
       );
-      navigate("/blogs");
+      navigate("/");
       return response;
     } catch (error) {
       return rejectWithValue("olmadı");
